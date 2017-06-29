@@ -7,3 +7,5 @@ The persistent layer include
 - (Custom) Content Provider
 - INSERT operations from Model Components
 - Retrieve data using Loader-Pattern for UI Components
+
+![restaurantlist_persistence_layer png](https://user-images.githubusercontent.com/5194798/27703918-c03556b0-5cbd-11e7-8722-73fa04d16f9b.png)
