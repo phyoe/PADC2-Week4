@@ -24,6 +24,11 @@
             </intent-filter>
 
         </activity>
+        <provider
+            android:name=".data.persistence.RestaurantProvider"
+            android:authorities="xyz.phyoekhant.padc_week3"
+            android:exported="false"
+            android:syncable="true" />
     </application>
 
 </manifest>

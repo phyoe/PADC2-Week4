@@ -14,7 +14,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import xyz.phyoekhant.padc_week3.data.responses.RestaurantListResponse;
 import xyz.phyoekhant.padc_week3.events.DataEvent;
-import xyz.phyoekhant.padc_week3.models.RestaurantModel;
 import xyz.phyoekhant.padc_week3.utils.CommonInstances;
 import xyz.phyoekhant.padc_week3.utils.RestaurantsConstants;
 
@@ -59,7 +58,7 @@ public class RetrofitDataAgent implements RestaurantDataAgent {
                 if (response.isSuccessful()) {
                     RestaurantListResponse restaurantListResponse = response.body();
                     if (restaurantListResponse == null) {
-                        RestaurantModel.getInstance().notifyErrorInLoadingRestaurants(response.message());
+                        //RestaurantModel.getInstance().notifyErrorInLoadingRestaurants(response.message());
                     } else {
                         //RestaurantModel.getInstance().notifyRestaurantsLoaded(restaurantListResponse.getRestaurantList());
                         EventBus.getDefault().post(new DataEvent.RestaurantLoadedEvent(restaurantListResponse.getRestaurantList()));

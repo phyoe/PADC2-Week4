@@ -1,8 +1,5 @@
 package xyz.phyoekhant.padc_week3.models;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,14 +33,5 @@ public class RestaurantModel extends BaseModel {
 
     public List<RestaurantVO> getRestaurantList() {
         return mRestaurantList;
-    }
-
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void notifyRestaurantsLoaded(List<RestaurantVO> restaurantList) {
-
-    }
-
-    public void notifyErrorInLoadingRestaurants(String message) {
-
     }
 }
