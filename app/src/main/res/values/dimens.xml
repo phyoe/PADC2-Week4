@@ -16,4 +16,12 @@
     <dimen name="margin_xlarge">32dp</dimen>
     <dimen name="img_width">80dp</dimen>
 
+    <dimen name="new_img_margin">6dp</dimen>
+    <dimen name="new_img_width">40dp</dimen>
+    <dimen name="new_img_height">25dp</dimen>
+
+    <dimen name="new_img_margin2">6dp</dimen>
+    <dimen name="new_img_width2">50dp</dimen>
+    <dimen name="new_img_height2">40dp</dimen>
+
 </resources>

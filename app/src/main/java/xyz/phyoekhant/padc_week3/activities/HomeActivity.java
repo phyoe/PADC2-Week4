@@ -94,19 +94,9 @@ public class HomeActivity extends BaseActivity
 
         if (id == R.id.nav_restaurant_list) {
             navigateToRestaurantList();
-    }
+        }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
     }
 }

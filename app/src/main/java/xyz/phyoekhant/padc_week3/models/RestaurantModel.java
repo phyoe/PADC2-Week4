@@ -38,19 +38,9 @@ public class RestaurantModel extends BaseModel {
         return mRestaurantList;
     }
 
-    /**
-     * for Network Layer
-     */
-
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void notifyRestaurantsLoaded(List<RestaurantVO> restaurantList) {
-        //Notify that the data is ready - using LocalBroadcast
-        //mRestaurantList = restaurantList;
-        //no need to member data
-        //bind to persistance layer
 
-        //keep the data in persistent layer.
-        //RestaurantVO.saveRestaurants(mRestaurantList);
     }
 
     public void notifyErrorInLoadingRestaurants(String message) {

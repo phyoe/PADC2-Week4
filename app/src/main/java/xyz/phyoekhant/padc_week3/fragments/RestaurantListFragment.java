@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -29,7 +28,7 @@ import xyz.phyoekhant.padc_week3.models.RestaurantModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RestaurantListFragment extends Fragment {
+public class RestaurantListFragment extends BaseFragment {
 
     @BindView(R.id.tv_total_restaurant_count)
     TextView tvTotalRestaurantCount;
@@ -39,7 +38,7 @@ public class RestaurantListFragment extends Fragment {
 
     private RestaurantAdapter mRestaurantAdapter;
 
-    public static RestaurantListFragment newInstance(){
+    public static RestaurantListFragment newInstance() {
         RestaurantListFragment fragment = new RestaurantListFragment();
         return fragment;
     }
@@ -58,34 +57,13 @@ public class RestaurantListFragment extends Fragment {
         List<RestaurantVO> restaurantList = RestaurantModel.getInstance().getRestaurantList();
         tvTotalRestaurantCount.setText(restaurantList.size() + " restaurants deliver to you");
 
-        mRestaurantAdapter = new RestaurantAdapter(restaurantList);
+        mRestaurantAdapter = new RestaurantAdapter(getContext());
         rvRestaurants.setAdapter(mRestaurantAdapter);
 
         int gridColumnSpanCount = 1;
         rvRestaurants.setLayoutManager(new GridLayoutManager(getContext(), gridColumnSpanCount));
         return rootView;
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        //For Network Layer
-        EventBus eventBus = EventBus.getDefault();
-        if (!eventBus.isRegistered(this)) {
-            eventBus.register(this);
-        }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        //For Network Layer
-        EventBus eventBus = EventBus.getDefault();
-        eventBus.unregister(this);
-    }
-
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(DataEvent.RestaurantLoadedEvent event) {

@@ -61,8 +61,8 @@ public class RetrofitDataAgent implements RestaurantDataAgent {
                     if (restaurantListResponse == null) {
                         RestaurantModel.getInstance().notifyErrorInLoadingRestaurants(response.message());
                     } else {
-                        EventBus.getDefault().post(new DataEvent.RestaurantLoadedEvent(restaurantListResponse.getRestaurantList()));
                         //RestaurantModel.getInstance().notifyRestaurantsLoaded(restaurantListResponse.getRestaurantList());
+                        EventBus.getDefault().post(new DataEvent.RestaurantLoadedEvent(restaurantListResponse.getRestaurantList()));
                     }
                 } else {
                     Log.e("DataAgent", "Loading RestaurantList Not Success");
@@ -73,7 +73,7 @@ public class RetrofitDataAgent implements RestaurantDataAgent {
             public void onFailure(Call<RestaurantListResponse> call, Throwable throwable) {
                 Log.e("DataAgent", "Loading RestaurantList Failure : " + throwable.getMessage());
                 throwable.printStackTrace();
-                RestaurantModel.getInstance().notifyErrorInLoadingRestaurants(throwable.getMessage());
+                //RestaurantModel.getInstance().notifyErrorInLoadingRestaurants(throwable.getMessage());
             }
         });
 

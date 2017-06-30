@@ -13,11 +13,13 @@ public class RestaurantsExtraData {
     public final Map<String, Integer> RESTAURANT_IMG_ARRAY = new HashMap<String, Integer>();
     public final Map<String, Integer> RESTAURANT_PRICEY_ARRAY = new HashMap<String, Integer>();
     public final Map<String, String[]> RESTAURANT_ICON_ARRAY = new HashMap<String, String[]>();
+    public final Map<String, Integer> RESTAURANT_SORT_ARRAY = new HashMap<String, Integer>();
 
     public RestaurantsExtraData() {
         setRestaurantImgArray();
         setRestaurantPriceyArray();
         setRestaurantIconArray();
+        setRestaurantSortArray();
     }
 
     private void setRestaurantImgArray() {
@@ -90,10 +92,10 @@ public class RestaurantsExtraData {
         RESTAURANT_ICON_ARRAY.put("mingenseafood", new String[]{"percent", "halal", "file"});
         RESTAURANT_ICON_ARRAY.put("muthuscurry", new String[]{"percent"});
         RESTAURANT_ICON_ARRAY.put("nandos", new String[]{"halal", "file"});
-        RESTAURANT_ICON_ARRAY.put("pulsepatisserie", new String[]{"file"});
+        RESTAURANT_ICON_ARRAY.put("pulsepatisserie", new String[]{"percent"});
         RESTAURANT_ICON_ARRAY.put("roadhouse", new String[]{"halal", "file"});
         RESTAURANT_ICON_ARRAY.put("samyscurryrestaurant", new String[]{"percent", "halal"});
-        RESTAURANT_ICON_ARRAY.put("sarpinos", new String[]{"file"});
+        RESTAURANT_ICON_ARRAY.put("sarpinos", new String[]{"halal", "percent"});
         RESTAURANT_ICON_ARRAY.put("soithaisoinice", new String[]{"percent"});
         RESTAURANT_ICON_ARRAY.put("thebakerychef", new String[]{"halal"});
         RESTAURANT_ICON_ARRAY.put("thecoffeebeantealeaf", new String[]{"percent", "halal", "file"});
@@ -101,6 +103,32 @@ public class RestaurantsExtraData {
         RESTAURANT_ICON_ARRAY.put("thewinecompany", new String[]{"file"});
     }
 
+    private void setRestaurantSortArray() {
+        RESTAURANT_SORT_ARRAY.put("thecoffeebeantealeaf", 10);
+        RESTAURANT_SORT_ARRAY.put("nandos", 20);
+        RESTAURANT_SORT_ARRAY.put("helenskoreanjapanese", 30);
+        RESTAURANT_SORT_ARRAY.put("jecrab", 40);
+        RESTAURANT_SORT_ARRAY.put("fooksenggoldenhillchickenrice", 50);
+        RESTAURANT_SORT_ARRAY.put("soithaisoinice", 60);
+        RESTAURANT_SORT_ARRAY.put("bapkoreanfood", 70);
+        RESTAURANT_SORT_ARRAY.put("bigbitezexpress", 80);
+        RESTAURANT_SORT_ARRAY.put("jacksplace", 90);
+        RESTAURANT_SORT_ARRAY.put("mingenseafood", 100);
+        RESTAURANT_SORT_ARRAY.put("jadecrab", 110);
+        RESTAURANT_SORT_ARRAY.put("boufeboutiquecafe", 120);
+        RESTAURANT_SORT_ARRAY.put("bigcharliegrill", 130);
+        RESTAURANT_SORT_ARRAY.put("thepantrysocialenterprisecafe", 140);
+        RESTAURANT_SORT_ARRAY.put("muthuscurry", 150);
+        RESTAURANT_SORT_ARRAY.put("littlehouseofdreams", 160);
+        RESTAURANT_SORT_ARRAY.put("bakerv", 170);
+        RESTAURANT_SORT_ARRAY.put("samyscurryrestaurant", 180);
+        RESTAURANT_SORT_ARRAY.put("roadhouse", 190);
+        RESTAURANT_SORT_ARRAY.put("thebakerychef", 200);
+        RESTAURANT_SORT_ARRAY.put("brindas", 210);
+        RESTAURANT_SORT_ARRAY.put("thewinecompany", 220);
+        RESTAURANT_SORT_ARRAY.put("pulsepatisserie", 230);
+        RESTAURANT_SORT_ARRAY.put("sarpinos", 240);
+    }
 
     public int getImage(String key) {
         if (RESTAURANT_IMG_ARRAY.get(key) == null)
@@ -121,5 +149,12 @@ public class RestaurantsExtraData {
             return null;
         else
             return RESTAURANT_ICON_ARRAY.get(key);
+    }
+
+    public int getSort(String key) {
+        if (RESTAURANT_SORT_ARRAY.get(key) == null)
+            return 0;
+        else
+            return RESTAURANT_SORT_ARRAY.get(key);
     }
 }
